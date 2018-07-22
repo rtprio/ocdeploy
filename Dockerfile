@@ -31,8 +31,7 @@ RUN apk add -U --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing au
 		/usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
 		echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
 		rm -rf glibc.apk glibc-bin.apk /var/cache/apk/*  && \
-		apk add --no-cache bash git openssh py-pip && \
-    pip install shyaml && \
+		apk add --no-cache bash git openssh && \
 		mkdir -p /openshift-origin-client-tools && \
     curl -Lo /tmp/openshift-origin-client-tools.tar https://github.com/openshift/origin/releases/download/${OC_VERSION}/openshift-origin-client-tools-${OC_VERSION}-${OC_HASH}-linux-64bit.tar.gz && \
 		echo "$OC_SHA256  /tmp/openshift-origin-client-tools.tar" | sha256sum -c -  && \
